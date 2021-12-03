@@ -12,8 +12,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body>
 
-       
-            <?php
+
+
+
+
+        <section class="contact-form" section action="index.php" method="post"> <!--ссылается сам на себя-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-5 text-center">Drop us a email</h2>
+                    </div>
+
+                    <div class="col-12">
+                        
+                        <?php
+
 
             use PHPMailer\PHPMailer\PHPMailer;
             use PHPMailer\PHPMailer\SMTP;
@@ -76,52 +89,58 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 } catch (Exception $exception) {
                     ?>
                     <div class="alert alert-danger" role="alert">
-                        <?= $exception->getMessage() ?>
+                        <?= $exception -> getMessage() ?>
                     </div>
                     <?php
                 }
             }
             ?>
-            
-            
-            <form action="index.php" method="post"> <!--ссылается сам на себя-->
-                <div class="row">
+                        <form action="index.php" method="post">
+                            <div class="row">
 
-                    <div class="col-md-6 mb-2">
-                        <label for="yourname" >Your e-mail address</label><br>
-                        <input id="yourname" name="name" type="text" value="john" size="64" maxLength="64"
-                               placeholder="type your name, please" class="form-control <?= $errors["name"] ?? "main" ?>" ><br>
+                                <div class="col-md-6 mb-2">
+                                    <label for="yourname" >Your e-mail address</label><br>
+                                    <input id="yourname" name="name" type="text" value="john" size="64" maxLength="64"
+                                           placeholder="type your name, please" class="form-control <?= $errors["name"] ?? "main" ?>" ><br>
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="emailAddress">Your e-mail address</label><br>
+                                    <input id="emailAddress" name="email" type="email" value="john@mail.com" size="64" maxLength="64"
+                                           placeholder="username@beststartupever.com" class="form-control <?= $errors['email'] ?? "main" ?>" ><br><br>  
+                                </div>
+
+                                <div class="col-md-12 mb-2">
+                                    <label for="subject">Subject</label><br>
+                                    <input id="subject" name="subject" type="text" value="Best Idea" size="64" maxLength="64" 
+                                           placeholder="subject of your request" class="form-control <?= $errors['subject'] ?? "main" ?>" >
+                                </div>
+
+                                <div class="col-md-12 mb-2">
+                                    <label for="message">Request</label><br>
+                                    <textarea id="message" cols="80" rows="8" name="message" 
+                                              placeholder="My shoes are too tight, and I have forgotten how to dance." class="form-control <?= $errors['message'] ?? "main" ?>" >I have a best idea!</textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-main-md btn-success" type="submit" name="submit">Send message</button>
+                                </div> 
+
+
+                            </div>
+                        </form>
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <label for="emailAddress">Your e-mail address</label><br>
-                        <input id="emailAddress" name="email" type="email" value="john@mail.com" size="64" maxLength="64"
-                               placeholder="username@beststartupever.com" class="form-control <?= $errors['email'] ?? "main" ?>" ><br><br>  
-                    </div>
 
-                    <div class="col-md-12 mb-2">
-                        <label for="subject">Subject</label><br>
-                        <input id="subject" name="subject" type="text" value="Best Idea" size="64" maxLength="64" 
-                               placeholder="subject of your request" class="form-control <?= $errors['subject'] ?? "main" ?>" >
-                    </div>
-
-                    <div class="col-md-12 mb-2">
-                        <label for="message">Request</label><br>
-                        <textarea id="message" cols="80" rows="8" name="message" 
-                                  placeholder="My shoes are too tight, and I have forgotten how to dance." class="form-control" <?= $errors['message'] ?? "main" ?>>I have a best idea!</textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <button class="btn btn-main-md btn-success" type="submit">Send message</button>
-                    </div>
 
                 </div>
+            </div>
 
 
 
 
 
-            </form>
-        
+        </section>
+
 
 
 
